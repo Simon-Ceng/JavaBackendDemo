@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.manager.system.dao.ManagerUserGroupMapper">
+  <resultMap id="BaseResultMap" type="com.manager.system.model.ManagerUserGroup">
+    <constructor>
+      <idArg column="GROUP_PKID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="GROUP_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="TYPE" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="STATUS" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="FROM_EMAIL" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="FROM_PASSWORD" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="FROM_PORT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="FROM_SMTP" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="FROM_TLS" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="TO_EMAIL" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="TEST_EMAIL" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EMAIL_PERIOD" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="START_TIME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="STOP_TIME" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    GROUP_PKID, GROUP_NAME, TYPE, STATUS, FROM_EMAIL, FROM_PASSWORD, FROM_PORT, FROM_SMTP, 
+    FROM_TLS, TO_EMAIL, TEST_EMAIL, EMAIL_PERIOD, START_TIME, STOP_TIME
+  </sql>
+  <select id="selectByExample" parameterType="com.manager.system.model.ManagerUserGroupExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from manager_user_group
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from manager_user_group
+    where GROUP_PKID = #{groupPkid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from manager_user_group
+    where GROUP_PKID = #{groupPkid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.manager.system.model.ManagerUserGroupExample">
+    delete from manager_user_group
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.manager.system.model.ManagerUserGroup">
+    insert into manager_user_group (GROUP_PKID, GROUP_NAME, TYPE, 
+      STATUS, FROM_EMAIL, FROM_PASSWORD, 
+      FROM_PORT, FROM_SMTP, FROM_TLS, 
+      TO_EMAIL, TEST_EMAIL, EMAIL_PERIOD, 
+      START_TIME, STOP_TIME)
+    values (#{groupPkid,jdbcType=INTEGER}, #{groupName,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER}, #{fromEmail,jdbcType=VARCHAR}, #{fromPassword,jdbcType=VARCHAR}, 
+      #{fromPort,jdbcType=VARCHAR}, #{fromSmtp,jdbcType=VARCHAR}, #{fromTls,jdbcType=INTEGER}, 
+      #{toEmail,jdbcType=VARCHAR}, #{testEmail,jdbcType=VARCHAR}, #{emailPeriod,jdbcType=INTEGER}, 
+      #{startTime,jdbcType=VARCHAR}, #{stopTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.manager.system.model.ManagerUserGroup">
+    insert into manager_user_group
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="groupPkid != null">
+        GROUP_PKID,
+      </if>
+      <if test="groupName != null">
+        GROUP_NAME,
+      </if>
+      <if test="type != null">
+        TYPE,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="fromEmail != null">
+        FROM_EMAIL,
+      </if>
+      <if test="fromPassword != null">
+        FROM_PASSWORD,
+      </if>
+      <if test="fromPort != null">
+        FROM_PORT,
+      </if>
+      <if test="fromSmtp != null">
+        FROM_SMTP,
+      </if>
+      <if test="fromTls != null">
+        FROM_TLS,
+      </if>
+      <if test="toEmail != null">
+        TO_EMAIL,
+      </if>
+      <if test="testEmail != null">
+        TEST_EMAIL,
+      </if>
+      <if test="emailPeriod != null">
+        EMAIL_PERIOD,
+      </if>
+      <if test="startTime != null">
+        START_TIME,
+      </if>
+      <if test="stopTime != null">
+        STOP_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="groupPkid != null">
+        #{groupPkid,jdbcType=INTEGER},
+      </if>
+      <if test="groupName != null">
+        #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="fromEmail != null">
+        #{fromEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="fromPassword != null">
+        #{fromPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="fromPort != null">
+        #{fromPort,jdbcType=VARCHAR},
+      </if>
+      <if test="fromSmtp != null">
+        #{fromSmtp,jdbcType=VARCHAR},
+      </if>
+      <if test="fromTls != null">
+        #{fromTls,jdbcType=INTEGER},
+      </if>
+      <if test="toEmail != null">
+        #{toEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="testEmail != null">
+        #{testEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="emailPeriod != null">
+        #{emailPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=VARCHAR},
+      </if>
+      <if test="stopTime != null">
+        #{stopTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.manager.system.model.ManagerUserGroupExample" resultType="java.lang.Long">
+    select count(*) from manager_user_group
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update manager_user_group
+    <set>
+      <if test="record.groupPkid != null">
+        GROUP_PKID = #{record.groupPkid,jdbcType=INTEGER},
+      </if>
+      <if test="record.groupName != null">
+        GROUP_NAME = #{record.groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.type != null">
+        TYPE = #{record.type,jdbcType=INTEGER},
+      </if>
+      <if test="record.status != null">
+        STATUS = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.fromEmail != null">
+        FROM_EMAIL = #{record.fromEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fromPassword != null">
+        FROM_PASSWORD = #{record.fromPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fromPort != null">
+        FROM_PORT = #{record.fromPort,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fromSmtp != null">
+        FROM_SMTP = #{record.fromSmtp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fromTls != null">
+        FROM_TLS = #{record.fromTls,jdbcType=INTEGER},
+      </if>
+      <if test="record.toEmail != null">
+        TO_EMAIL = #{record.toEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.testEmail != null">
+        TEST_EMAIL = #{record.testEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emailPeriod != null">
+        EMAIL_PERIOD = #{record.emailPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="record.startTime != null">
+        START_TIME = #{record.startTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stopTime != null">
+        STOP_TIME = #{record.stopTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update manager_user_group
+    set GROUP_PKID = #{record.groupPkid,jdbcType=INTEGER},
+      GROUP_NAME = #{record.groupName,jdbcType=VARCHAR},
+      TYPE = #{record.type,jdbcType=INTEGER},
+      STATUS = #{record.status,jdbcType=INTEGER},
+      FROM_EMAIL = #{record.fromEmail,jdbcType=VARCHAR},
+      FROM_PASSWORD = #{record.fromPassword,jdbcType=VARCHAR},
+      FROM_PORT = #{record.fromPort,jdbcType=VARCHAR},
+      FROM_SMTP = #{record.fromSmtp,jdbcType=VARCHAR},
+      FROM_TLS = #{record.fromTls,jdbcType=INTEGER},
+      TO_EMAIL = #{record.toEmail,jdbcType=VARCHAR},
+      TEST_EMAIL = #{record.testEmail,jdbcType=VARCHAR},
+      EMAIL_PERIOD = #{record.emailPeriod,jdbcType=INTEGER},
+      START_TIME = #{record.startTime,jdbcType=VARCHAR},
+      STOP_TIME = #{record.stopTime,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.manager.system.model.ManagerUserGroup">
+    update manager_user_group
+    <set>
+      <if test="groupName != null">
+        GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        TYPE = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="fromEmail != null">
+        FROM_EMAIL = #{fromEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="fromPassword != null">
+        FROM_PASSWORD = #{fromPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="fromPort != null">
+        FROM_PORT = #{fromPort,jdbcType=VARCHAR},
+      </if>
+      <if test="fromSmtp != null">
+        FROM_SMTP = #{fromSmtp,jdbcType=VARCHAR},
+      </if>
+      <if test="fromTls != null">
+        FROM_TLS = #{fromTls,jdbcType=INTEGER},
+      </if>
+      <if test="toEmail != null">
+        TO_EMAIL = #{toEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="testEmail != null">
+        TEST_EMAIL = #{testEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="emailPeriod != null">
+        EMAIL_PERIOD = #{emailPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="startTime != null">
+        START_TIME = #{startTime,jdbcType=VARCHAR},
+      </if>
+      <if test="stopTime != null">
+        STOP_TIME = #{stopTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where GROUP_PKID = #{groupPkid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.manager.system.model.ManagerUserGroup">
+    update manager_user_group
+    set GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+      TYPE = #{type,jdbcType=INTEGER},
+      STATUS = #{status,jdbcType=INTEGER},
+      FROM_EMAIL = #{fromEmail,jdbcType=VARCHAR},
+      FROM_PASSWORD = #{fromPassword,jdbcType=VARCHAR},
+      FROM_PORT = #{fromPort,jdbcType=VARCHAR},
+      FROM_SMTP = #{fromSmtp,jdbcType=VARCHAR},
+      FROM_TLS = #{fromTls,jdbcType=INTEGER},
+      TO_EMAIL = #{toEmail,jdbcType=VARCHAR},
+      TEST_EMAIL = #{testEmail,jdbcType=VARCHAR},
+      EMAIL_PERIOD = #{emailPeriod,jdbcType=INTEGER},
+      START_TIME = #{startTime,jdbcType=VARCHAR},
+      STOP_TIME = #{stopTime,jdbcType=VARCHAR}
+    where GROUP_PKID = #{groupPkid,jdbcType=INTEGER}
+  </update>
+</mapper>

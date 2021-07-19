@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.manager.system.dao.ManagerGroupAuthorityMapper">
+  <resultMap id="BaseResultMap" type="com.manager.system.model.ManagerGroupAuthority">
+    <constructor>
+      <idArg column="AUTHORITY_PKID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="GROUP_PKID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="LEVEL1" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="LEVEL2" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="LEVEL3" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="LEVEL4" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    AUTHORITY_PKID, GROUP_PKID, LEVEL1, LEVEL2, LEVEL3, LEVEL4
+  </sql>
+  <select id="selectByExample" parameterType="com.manager.system.model.ManagerGroupAuthorityExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from manager_group_authority
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from manager_group_authority
+    where AUTHORITY_PKID = #{authorityPkid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from manager_group_authority
+    where AUTHORITY_PKID = #{authorityPkid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.manager.system.model.ManagerGroupAuthorityExample">
+    delete from manager_group_authority
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.manager.system.model.ManagerGroupAuthority">
+    insert into manager_group_authority (AUTHORITY_PKID, GROUP_PKID, LEVEL1, 
+      LEVEL2, LEVEL3, LEVEL4
+      )
+    values (#{authorityPkid,jdbcType=INTEGER}, #{groupPkid,jdbcType=INTEGER}, #{level1,jdbcType=VARCHAR}, 
+      #{level2,jdbcType=VARCHAR}, #{level3,jdbcType=VARCHAR}, #{level4,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.manager.system.model.ManagerGroupAuthority">
+    insert into manager_group_authority
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="authorityPkid != null">
+        AUTHORITY_PKID,
+      </if>
+      <if test="groupPkid != null">
+        GROUP_PKID,
+      </if>
+      <if test="level1 != null">
+        LEVEL1,
+      </if>
+      <if test="level2 != null">
+        LEVEL2,
+      </if>
+      <if test="level3 != null">
+        LEVEL3,
+      </if>
+      <if test="level4 != null">
+        LEVEL4,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="authorityPkid != null">
+        #{authorityPkid,jdbcType=INTEGER},
+      </if>
+      <if test="groupPkid != null">
+        #{groupPkid,jdbcType=INTEGER},
+      </if>
+      <if test="level1 != null">
+        #{level1,jdbcType=VARCHAR},
+      </if>
+      <if test="level2 != null">
+        #{level2,jdbcType=VARCHAR},
+      </if>
+      <if test="level3 != null">
+        #{level3,jdbcType=VARCHAR},
+      </if>
+      <if test="level4 != null">
+        #{level4,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.manager.system.model.ManagerGroupAuthorityExample" resultType="java.lang.Long">
+    select count(*) from manager_group_authority
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update manager_group_authority
+    <set>
+      <if test="record.authorityPkid != null">
+        AUTHORITY_PKID = #{record.authorityPkid,jdbcType=INTEGER},
+      </if>
+      <if test="record.groupPkid != null">
+        GROUP_PKID = #{record.groupPkid,jdbcType=INTEGER},
+      </if>
+      <if test="record.level1 != null">
+        LEVEL1 = #{record.level1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.level2 != null">
+        LEVEL2 = #{record.level2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.level3 != null">
+        LEVEL3 = #{record.level3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.level4 != null">
+        LEVEL4 = #{record.level4,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update manager_group_authority
+    set AUTHORITY_PKID = #{record.authorityPkid,jdbcType=INTEGER},
+      GROUP_PKID = #{record.groupPkid,jdbcType=INTEGER},
+      LEVEL1 = #{record.level1,jdbcType=VARCHAR},
+      LEVEL2 = #{record.level2,jdbcType=VARCHAR},
+      LEVEL3 = #{record.level3,jdbcType=VARCHAR},
+      LEVEL4 = #{record.level4,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.manager.system.model.ManagerGroupAuthority">
+    update manager_group_authority
+    <set>
+      <if test="groupPkid != null">
+        GROUP_PKID = #{groupPkid,jdbcType=INTEGER},
+      </if>
+      <if test="level1 != null">
+        LEVEL1 = #{level1,jdbcType=VARCHAR},
+      </if>
+      <if test="level2 != null">
+        LEVEL2 = #{level2,jdbcType=VARCHAR},
+      </if>
+      <if test="level3 != null">
+        LEVEL3 = #{level3,jdbcType=VARCHAR},
+      </if>
+      <if test="level4 != null">
+        LEVEL4 = #{level4,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where AUTHORITY_PKID = #{authorityPkid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.manager.system.model.ManagerGroupAuthority">
+    update manager_group_authority
+    set GROUP_PKID = #{groupPkid,jdbcType=INTEGER},
+      LEVEL1 = #{level1,jdbcType=VARCHAR},
+      LEVEL2 = #{level2,jdbcType=VARCHAR},
+      LEVEL3 = #{level3,jdbcType=VARCHAR},
+      LEVEL4 = #{level4,jdbcType=VARCHAR}
+    where AUTHORITY_PKID = #{authorityPkid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,41 @@
+server:
+    servlet:
+        context-path: /
+        jsp:
+            init-parameters:
+                development : true
+    port: 8087    #后端的访问端口
+    tomcat:
+        uri-encoding: UTF-8
+
+pagehelper:
+    helper-dialect: mysql
+    reasonable: true
+    support-methods-arguments: true
+    params: count=countSql
+app:
+    jwtSecret: JWTSuperSecretKey
+    jwtExpirationInMs: 604800000
+logging:
+    level:
+        org.springframework.jdbc : INFO
+        org.apache.mina.** : ERROR
+    file: /logs/RCS_log/RCS.log    #此处可忽略
+
+spring:
+    datasource:
+        name: simon
+        url: jdbc:mysql://localhost:3306/servicemanager?useSSL=false&serverTimezone=UTC  #这是MySQL 8.0版本JDBC的url格式
+        username: root       #数据库的用户名和密码
+        password: 123456
+        driver-class-name: com.mysql.cj.jdbc.Driver  #这是MySQL 8.0版本JDBC的driver格式
+    resources:
+        cache:
+            cachecontrol:
+                max-age: 604800000
+        chain:
+            cache: true
+        static-locations: classpath:/resources/,classpath:/static/,classpath:/Mapping/  #静态文件路径，存储前端web的生成文件
+mybatis:
+    mapper-locations: classpath:Mapping/*Mapper.xml     # mybatis的mapper文件访问路径
+    type-aliases-package: com.manager.system.model      # mybatis的数据库对象访问路径

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.manager.system.dao.ManagerUserViewMapper">
+  <resultMap id="BaseResultMap" type="com.manager.system.model.ManagerUserView">
+    <constructor>
+      <arg column="USER_PKID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="USERNAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PASSWORD" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="USER_STATUS" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="GROUP_PKID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="GROUP_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="TYPE" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="GROUP_STATUS" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="AUTHORITY_PKID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="LEVEL1" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="LEVEL2" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="LEVEL3" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="LEVEL4" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    USER_PKID, USERNAME, PASSWORD, USER_STATUS, GROUP_PKID, GROUP_NAME, TYPE, GROUP_STATUS, 
+    AUTHORITY_PKID, LEVEL1, LEVEL2, LEVEL3, LEVEL4
+  </sql>
+  <select id="selectByExample" parameterType="com.manager.system.model.ManagerUserViewExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from manager_user_view
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <insert id="insert" parameterType="com.manager.system.model.ManagerUserView">
+    insert into manager_user_view (USER_PKID, USERNAME, PASSWORD, 
+      USER_STATUS, GROUP_PKID, GROUP_NAME, 
+      TYPE, GROUP_STATUS, AUTHORITY_PKID, 
+      LEVEL1, LEVEL2, LEVEL3, 
+      LEVEL4)
+    values (#{userPkid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{userStatus,jdbcType=INTEGER}, #{groupPkid,jdbcType=INTEGER}, #{groupName,jdbcType=VARCHAR}, 
+      #{type,jdbcType=INTEGER}, #{groupStatus,jdbcType=INTEGER}, #{authorityPkid,jdbcType=INTEGER}, 
+      #{level1,jdbcType=VARCHAR}, #{level2,jdbcType=VARCHAR}, #{level3,jdbcType=VARCHAR}, 
+      #{level4,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.manager.system.model.ManagerUserView">
+    insert into manager_user_view
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userPkid != null">
+        USER_PKID,
+      </if>
+      <if test="username != null">
+        USERNAME,
+      </if>
+      <if test="password != null">
+        PASSWORD,
+      </if>
+      <if test="userStatus != null">
+        USER_STATUS,
+      </if>
+      <if test="groupPkid != null">
+        GROUP_PKID,
+      </if>
+      <if test="groupName != null">
+        GROUP_NAME,
+      </if>
+      <if test="type != null">
+        TYPE,
+      </if>
+      <if test="groupStatus != null">
+        GROUP_STATUS,
+      </if>
+      <if test="authorityPkid != null">
+        AUTHORITY_PKID,
+      </if>
+      <if test="level1 != null">
+        LEVEL1,
+      </if>
+      <if test="level2 != null">
+        LEVEL2,
+      </if>
+      <if test="level3 != null">
+        LEVEL3,
+      </if>
+      <if test="level4 != null">
+        LEVEL4,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userPkid != null">
+        #{userPkid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="userStatus != null">
+        #{userStatus,jdbcType=INTEGER},
+      </if>
+      <if test="groupPkid != null">
+        #{groupPkid,jdbcType=INTEGER},
+      </if>
+      <if test="groupName != null">
+        #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="groupStatus != null">
+        #{groupStatus,jdbcType=INTEGER},
+      </if>
+      <if test="authorityPkid != null">
+        #{authorityPkid,jdbcType=INTEGER},
+      </if>
+      <if test="level1 != null">
+        #{level1,jdbcType=VARCHAR},
+      </if>
+      <if test="level2 != null">
+        #{level2,jdbcType=VARCHAR},
+      </if>
+      <if test="level3 != null">
+        #{level3,jdbcType=VARCHAR},
+      </if>
+      <if test="level4 != null">
+        #{level4,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.manager.system.model.ManagerUserViewExample" resultType="java.lang.Long">
+    select count(*) from manager_user_view
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+</mapper>
