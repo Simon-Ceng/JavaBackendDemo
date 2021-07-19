@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="065da12b-cff6-48c6-964c-cbfcb8cc2b80" name="Default Changelist" comment="" />
+    <list default="true" id="acdcc41b-4572-458b-bba4-f79c0edc050b" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,17 +11,89 @@
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
   </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="216" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="AnnotationType" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/ManagerSystem" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="C:\software\IDEAmaven\MavenRepository" />
+        <option name="mavenHome" value="C:/software/IDEAmaven/apache-maven-3.6.2" />
+        <option name="userSettingsFile" value="C:\software\IDEAmaven\apache-maven-3.6.2\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
-  <component name="ProjectId" id="1vWRv5llIPyg7cRYqtL84OSpz8G" />
+  <component name="ProjectId" id="1TW2oh3rE5B9D4P4QpDTR6RBahV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="jdk.selected.JAVA_MODULE" value="13" />
+    <property name="last_opened_file_path" value="$USER_HOME$/GitProject/JavaBackendDemo" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.31034482" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\84175\IdeaProjects\system\src\main\java\com\manager\system" />
+      <recent name="C:\Users\84175\IdeaProjects\system\src\main\resources" />
+      <recent name="C:\Users\84175\IdeaProjects\system\src\test" />
+      <recent name="C:\Users\84175\IdeaProjects\system\src\main\java\com\manager\system\controller" />
+      <recent name="C:\Users\84175\IdeaProjects\system\src\main\resources\Mapping" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.manager.system.config" />
+      <recent name="com.manager.system.controller" />
+      <recent name="com.manager.system.config.security" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\84175\IdeaProjects\system\src\main" />
+      <recent name="C:\Users\84175\IdeaProjects\system\src\main\java\com\manager\system\controller" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -35,7 +107,35 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.ManagerSystemApplication">
+    <configuration name="AES" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.manager.system.util.AES" />
+      <module name="system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.manager.system.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ManagerSystemApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="C:\Program Files\Java\jdk1.8.0_231\jre" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.manager.system.ManagerSystemApplication" />
+      <module name="system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.manager.system.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ManagerSystemApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="system" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.manager.system.ManagerSystemApplication" />
@@ -43,18 +143,98 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ManagerSystemApplication" />
+        <item itemvalue="Application.AES" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="065da12b-cff6-48c6-964c-cbfcb8cc2b80" name="Default Changelist" comment="" />
-      <created>1626676085055</created>
+      <changelist id="acdcc41b-4572-458b-bba4-f79c0edc050b" name="Default Changelist" comment="" />
+      <created>1573561707316</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1626676085055</updated>
-      <workItem from="1626676087476" duration="75000" />
+      <updated>1573561707316</updated>
+      <workItem from="1574393579579" duration="1732000" />
+      <workItem from="1574397228846" duration="181000" />
+      <workItem from="1574397447447" duration="1737000" />
+      <workItem from="1574399209459" duration="13065000" />
+      <workItem from="1574418406185" duration="3652000" />
+      <workItem from="1574428485073" duration="2498000" />
+      <workItem from="1574662261906" duration="20177000" />
+      <workItem from="1574769853314" duration="9071000" />
+      <workItem from="1574866183428" duration="2946000" />
+      <workItem from="1574938225961" duration="11358000" />
+      <workItem from="1575010573831" duration="4929000" />
+      <workItem from="1575463163642" duration="2196000" />
+      <workItem from="1575467553509" duration="1904000" />
+      <workItem from="1575509850212" duration="617000" />
+      <workItem from="1575550761519" duration="3140000" />
+      <workItem from="1575625509203" duration="5949000" />
+      <workItem from="1575683074828" duration="281000" />
+      <workItem from="1575693431841" duration="2118000" />
+      <workItem from="1575729141865" duration="1637000" />
+      <workItem from="1575873350978" duration="172000" />
+      <workItem from="1576140677375" duration="467000" />
+      <workItem from="1576158084059" duration="615000" />
+      <workItem from="1576652070047" duration="17703000" />
+      <workItem from="1576715717614" duration="1880000" />
+      <workItem from="1576759927407" duration="1213000" />
+      <workItem from="1577103453521" duration="512000" />
+      <workItem from="1579426579757" duration="2728000" />
+      <workItem from="1579440989818" duration="97000" />
+      <workItem from="1580635490463" duration="343000" />
+      <workItem from="1580700206528" duration="2262000" />
+      <workItem from="1580823340099" duration="990000" />
+      <workItem from="1580825353632" duration="1071000" />
+      <workItem from="1580870668888" duration="3004000" />
+      <workItem from="1580884358333" duration="2329000" />
+      <workItem from="1581076254982" duration="1879000" />
+      <workItem from="1581335781140" duration="1339000" />
+      <workItem from="1581581680940" duration="1215000" />
+      <workItem from="1581585302754" duration="1565000" />
+      <workItem from="1582011406696" duration="2661000" />
+      <workItem from="1582027917346" duration="616000" />
+      <workItem from="1582028698617" duration="1823000" />
+      <workItem from="1582110074149" duration="5238000" />
+      <workItem from="1583384093224" duration="3406000" />
+      <workItem from="1583467249633" duration="888000" />
+      <workItem from="1583936394652" duration="681000" />
+      <workItem from="1583937743194" duration="6485000" />
+      <workItem from="1584012413308" duration="710000" />
+      <workItem from="1584103224230" duration="140000" />
+      <workItem from="1585663943642" duration="635000" />
+      <workItem from="1587475581443" duration="858000" />
+      <workItem from="1587646120194" duration="35000" />
+      <workItem from="1588300920503" duration="659000" />
+      <workItem from="1588764698156" duration="41000" />
+      <workItem from="1588820707648" duration="1765000" />
+      <workItem from="1588858083575" duration="597000" />
+      <workItem from="1589456098772" duration="3292000" />
+      <workItem from="1589875787501" duration="1845000" />
+      <workItem from="1589887005469" duration="3850000" />
+      <workItem from="1589939654473" duration="584000" />
+      <workItem from="1589979803639" duration="2359000" />
+      <workItem from="1590065096527" duration="2126000" />
+      <workItem from="1590491347439" duration="4334000" />
+      <workItem from="1590541878104" duration="3953000" />
+      <workItem from="1590667793222" duration="2728000" />
+      <workItem from="1590674055534" duration="729000" />
+      <workItem from="1593071926589" duration="112000" />
+      <workItem from="1596384033081" duration="1283000" />
+      <workItem from="1596385502674" duration="101000" />
+      <workItem from="1596420073522" duration="26000" />
+      <workItem from="1597307012963" duration="627000" />
+      <workItem from="1600930111429" duration="708000" />
+      <workItem from="1600949748015" duration="665000" />
+      <workItem from="1602422773910" duration="908000" />
+      <workItem from="1607691205743" duration="905000" />
+      <workItem from="1626675458345" duration="623000" />
     </task>
     <servers />
   </component>
@@ -66,10 +246,17 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/system$ManagerSystemApplication.ic" NAME="ManagerSystemApplication Coverage Results" MODIFIED="1574343646557" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.manager.system.*</FILTER>
+    </SUITE>
   </component>
 </project>
